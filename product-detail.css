@@ -1,0 +1,274 @@
+/* 상품 상세 페이지 */
+.pd-container {
+  max-width: 1100px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+  color: #333;
+}
+
+.pd-breadcrumb {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #888;
+}
+
+.pd-breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+.pd-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 50px;
+  align-items: start;
+}
+
+.pd-image-area {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.pd-main-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.pd-info {
+  padding: 8px 0;
+}
+
+.pd-category {
+  color: #ff6b35;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.pd-title {
+  font-size: 30px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.pd-description {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.pd-price {
+  color: #ff6b35;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.pd-divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 24px 0;
+}
+
+.pd-option {
+  margin-bottom: 24px;
+}
+
+.pd-label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.pd-color-options {
+  display: flex;
+  gap: 10px;
+}
+
+.pd-color {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pd-color.selected {
+  border: 2px solid #ff6b35;
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+.pd-select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+}
+
+.pd-quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.pd-quantity button {
+  width: 42px;
+  height: 40px;
+  border: none;
+  background: #f5f5f5;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.pd-quantity span {
+  min-width: 48px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.pd-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e5e5e5;
+  padding: 22px 0;
+  margin-top: 10px;
+}
+
+.pd-total span {
+  font-size: 14px;
+}
+
+.pd-total strong {
+  color: #ff6b35;
+  font-size: 24px;
+}
+
+.pd-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pd-buttons button {
+  min-height: 50px;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pd-cart-btn {
+  border: 1px solid #333;
+  background: white;
+  color: #333;
+}
+
+.pd-cart-btn:hover {
+  background: #f5f5f5;
+}
+
+.pd-buy-btn {
+  border: 1px solid #ff6b35;
+  background: #ff6b35;
+  color: white;
+}
+
+.pd-buy-btn:hover {
+  background: #e95a27;
+}
+
+.pd-buttons button:focus-visible,
+.pd-color:focus-visible,
+.pd-quantity button:focus-visible {
+  outline: 3px solid #222;
+  outline-offset: 3px;
+}
+
+.pd-message {
+  margin-top: 16px;
+  color: #d95427;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.pd-notice {
+  margin-top: 24px;
+  padding: 18px 18px 18px 34px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  color: #777;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.pd-detail {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.pd-detail h2 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.pd-detail p {
+  font-size: 14px;
+  line-height: 2;
+  color: #666;
+}
+
+/* 모바일 화면 */
+@media (max-width: 700px) {
+  .pd-container {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  .pd-breadcrumb {
+    margin-bottom: 20px;
+  }
+
+  .pd-product {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .pd-image-area {
+    min-height: 0;
+  }
+
+  .pd-title {
+    font-size: 25px;
+  }
+
+  .pd-price {
+    font-size: 25px;
+  }
+
+  .pd-total strong {
+    font-size: 21px;
+  }
+
+  .pd-detail {
+    margin-top: 40px;
+  }
+}

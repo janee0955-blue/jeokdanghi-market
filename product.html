@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 상세 | 적당히 마켓</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product-detail.css">
+</head>
+<body>
+
+<header>
+  <h1><a href="index.html">적당히 마켓</a></h1>
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="index.html#products">상품 목록</a>
+    <a href="#" id="cartLink">장바구니 (<span id="cartCount">0</span>)</a>
+  </nav>
+</header>
+
+
+<main class="pd-container">
+  <div class="pd-breadcrumb">
+    <a href="index.html">홈</a> / 상품 상세
+  </div>
+
+  <div class="pd-product">
+    <div class="pd-image-area">
+      <img id="productImage" class="pd-main-image" src="" alt="상품 사진">
+    </div>
+
+    <div class="pd-info">
+      <p class="pd-category">JEOKDANGHI MARKET</p>
+      <h2 class="pd-title" id="productName">상품명</h2>
+      <p class="pd-description" id="productDescription"></p>
+      <p class="pd-price" id="productPrice">0원</p>
+
+      <div class="pd-divider"></div>
+
+      <div class="pd-option">
+        <label class="pd-label" for="color">색상</label>
+        <select class="pd-select" id="color"></select>
+      </div>
+
+      <div class="pd-option" id="sizeArea">
+        <label class="pd-label" for="size">사이즈</label>
+        <select class="pd-select" id="size">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+
+      <div class="pd-option">
+        <label class="pd-label" for="quantity">수량</label>
+        <div class="pd-quantity">
+          <button type="button" id="minus" aria-label="수량 줄이기">−</button>
+          <span id="quantity">1</span>
+          <button type="button" id="plus" aria-label="수량 늘리기">＋</button>
+        </div>
+      </div>
+
+      <div class="pd-total">
+        <span>총 상품 금액</span>
+        <strong id="totalPrice">0원</strong>
+      </div>
+
+      <div class="pd-buttons">
+        <button type="button" class="pd-cart-btn" id="addCart">장바구니 담기</button>
+        <button type="button" class="pd-buy-btn" id="buyNow">바로 구매</button>
+      </div>
+
+      <p class="pd-message" id="message"></p>
+
+      <ul class="pd-notice">
+        <li>본 페이지는 웹 개발 연습용 쇼핑몰입니다.</li>
+        <li>실제 주문 및 결제는 진행되지 않습니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="pd-detail">
+    <h2>상품 설명</h2>
+    <p id="detailDescription"></p>
+  </section>
+</main>
+
+
+<footer>
+  <p>© 2026 적당히 마켓</p>
+  <p>이 사이트는 연습용 쇼핑몰입니다.</p>
+</footer>
+
+
+<script>
+  const products = {
+    1: {
+      name: "기본 면 티셔츠",
+      image: "images/면티.jfif",
+      price: 15000,
+      description: "매일 편하게 입기 좋은 기본 면 티셔츠입니다.",
+      detail: "부드러운 촉감과 깔끔한 디자인으로 일상에서 활용하기 좋은 기본 아이템입니다.",
+      colors: ["화이트", "블랙"],
+      sizes: true
+    },
+    2: {
+      name: "캔버스 에코백",
+      image: "images/에코백.webp",
+      price: 12900,
+      description: "가볍고 실용적인 데일리 에코백입니다.",
+      detail: "가벼운 외출이나 장보기 등 다양한 상황에서 활용하기 좋은 에코백입니다.",
+      colors: ["베이지", "블랙"],
+      sizes: false
+    },
+    3: {
+      name: "스테인리스 텀블러",
+      image: "images/텀블러.webp",
+      price: 18500,
+      description: "일상에서 음료를 담아 다니기 좋은 텀블러입니다.",
+      detail: "집이나 직장, 외출할 때 활용하기 좋은 실용적인 아이템입니다.",
+      colors: ["화이트", "블랙"],
+      sizes: false
+    },
+    4: {
+      name: "무선 마우스",
+      image: "images/무선마우스.jfif",
+      price: 22000,
+      description: "책상 위를 깔끔하게 만들어 주는 무선 마우스입니다.",
+      detail: "선 없이 자유롭게 사용할 수 있어 사무실이나 집에서 사용하기 좋습니다.",
+      colors: ["블랙", "화이트"],
+      sizes: false
+    }
+  };
+
+  const params = new URLSearchParams(location.search);
+  const productId = params.get("id") || "1";
+  const product = products[productId] || products["1"];
+
+  document.title = product.name + " | 적당히 마켓";
+
+  document.getElementById("productImage").src = product.image;
+  document.getElementById("productImage").alt = product.name;
+  document.getElementById("productName").textContent = product.name;
+  document.getElementById("productPrice").textContent =
+    product.price.toLocaleString("ko-KR") + "원";
+  document.getElementById("productDescription").textContent =
+    product.description;
+  document.getElementById("detailDescription").textContent =
+    product.detail;
+
+  const colorSelect = document.getElementById("color");
+
+  product.colors.forEach(function(color) {
+    const option = document.createElement("option");
+    option.value = color;
+    option.textContent = color;
+    colorSelect.appendChild(option);
+  });
+
+  if (!product.sizes) {
+    document.getElementById("sizeArea").style.display = "none";
+  }
+
+  let quantity = 1;
+  const quantityDisplay = document.getElementById("quantity");
+  const totalPrice = document.getElementById("totalPrice");
+  const message = document.getElementById("message");
+
+  function updateTotal() {
+    quantityDisplay.textContent = quantity;
+    totalPrice.textContent =
+      (product.price * quantity).toLocaleString("ko-KR") + "원";
+  }
+
+  document.getElementById("minus").addEventListener("click", function() {
+    if (quantity > 1) {
+      quantity--;
+      updateTotal();
+    }
+  });
+
+  document.getElementById("plus").addEventListener("click", function() {
+    if (quantity < 99) {
+      quantity++;
+      updateTotal();
+    }
+  });
+
+  updateTotal();
+
+  let cart = JSON.parse(sessionStorage.getItem("practiceCart") || "[]");
+
+  function updateCartCount() {
+    document.getElementById("cartCount").textContent =
+      cart.reduce(function(sum, item) {
+        return sum + item.quantity;
+      }, 0);
+  }
+
+  document.getElementById("addCart").addEventListener("click", function() {
+    cart.push({
+      id: productId,
+      name: product.name,
+      price: product.price,
+      quantity: quantity,
+      color: colorSelect.value,
+      size: product.sizes
+        ? document.getElementById("size").value
+        : null
+    });
+
+    sessionStorage.setItem("practiceCart", JSON.stringify(cart));
+    updateCartCount();
+
+    message.textContent = product.name + " 상품을 장바구니에 담았어요!";
+  });
+
+  document.getElementById("buyNow").addEventListener("click", function() {
+    message.textContent =
+      "선택한 상품: " + product.name +
+      " / 수량: " + quantity + "개 / 총 금액: " +
+      totalPrice.textContent +
+      " — 연습용 페이지라 실제 결제는 진행되지 않습니다.";
+  });
+
+  document.getElementById("cartLink").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    if (cart.length === 0) {
+      alert("장바구니가 비어 있습니다.");
+      return;
+    }
+
+    const cartMessage = cart.map(function(item) {
+      return item.name + " / " + item.quantity + "개 / " +
+        (item.price * item.quantity).toLocaleString("ko-KR") + "원";
+    }).join("\n");
+
+    alert("장바구니 목록\n\n" + cartMessage);
+  });
+
+  updateCartCount();
+</script>
+
+
+</body>
+</html>
