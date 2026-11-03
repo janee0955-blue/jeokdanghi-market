@@ -136,4 +136,141 @@ body {
   text-decoration: none;
   color: inherit;
 }
-```
+/* 상세페이지 상단 헤더 중앙 정렬 */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px 15px;
+  gap: 12px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  text-decoration: none;
+}
+/* 메인 배너 업그레이드 */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #ff6b35, #ff8955, #ff6b35);
+  color: white;
+  text-align: center;
+  padding: 85px 20px;
+  min-height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-subtitle {
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+.banner h2 {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.banner-content > p:last-child {
+  font-size: 16px;
+}
+
+/* 사선 할인 문구 */
+.sale-sticker {
+  position: absolute;
+  top: 45px;
+  right: 8%;
+  transform: rotate(12deg);
+  background: linear-gradient(135deg, #fff2a6, #ffc83d, #fff0a0);
+  color: #a74313;
+  padding: 16px 28px;
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(120, 45, 0, 0.2);
+  font-size: 19px;
+  font-weight: 900;
+  z-index: 3;
+  animation: sticker-float 2.5s ease-in-out infinite;
+}
+
+/* 반짝이는 빛 효과 */
+.sale-sticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: sparkle 2.8s infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    left: -100%;
+  }
+  55%, 100% {
+    left: 150%;
+  }
+}
+
+@keyframes sticker-float {
+  0%, 100% {
+    transform: rotate(12deg) translateY(0);
+  }
+  50% {
+    transform: rotate(12deg) translateY(-5px);
+  }
+}
+
+/* 모바일 화면 */
+@media (max-width: 600px) {
+  .banner {
+    padding: 100px 15px 65px;
+  }
+
+  .banner h2 {
+    font-size: 28px;
+  }
+
+  .sale-sticker {
+    top: 12px;
+    right: 12px;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
