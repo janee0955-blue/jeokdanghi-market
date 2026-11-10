@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,84 +11,65 @@
 
   <!-- 상단 메뉴 -->
   <header class="header">
-    <h1 class="logo">적당히 마켓</h1>
+    <div class="header-inner">
+      <a href="index.html" class="logo">적당히 마켓</a>
 
-    <nav class="nav">
-      <a href="index.html">홈</a>
-      <a href="#">상품</a>
-      <a href="#">장바구니</a>
-      <a href="#">문의</a>
-    </nav>
+      <button
+        id="menu-btn"
+        class="menu-btn"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav id="nav" class="nav">
+        <a href="index.html" class="active">홈</a>
+        <a href="#products">상품</a>
+        <a href="#contact">문의</a>
+        <a href="cart.html">장바구니</a>
+      </nav>
+    </div>
   </header>
 
   <!-- 메인 배너 -->
-  <!-- 메인 배너 -->
-<section class="banner">
-  <div class="banner-content">
-    <p class="banner-subtitle">WELCOME TO JEOKDANGHI MARKET</p>
-    <h2>오늘의 추천 상품</h2>
-    <p>적당히 좋은 물건, 적당한 가격에</p>
-  </div>
+  <section class="banner">
+    <div class="banner-content">
+      <p class="banner-subtitle">WELCOME TO JEOKDANGHI MARKET</p>
+      <h2>오늘의 추천 상품</h2>
+      <p>적당히 좋은 물건, 적당한 가격에</p>
+    </div>
 
-  <div class="sale-sticker">
-    <span>✨ 오늘만 이 가격! ✨</span>
-  </div>
-</section>
+    <div class="sale-sticker">
+      ✨ 오늘만 이 가격! ✨
+    </div>
+  </section>
 
   <!-- 상품 목록 -->
   <main class="container">
-    <h2 class="section-title">전체 상품</h2>
+    <h2 class="section-title" id="products">전체 상품</h2>
 
-    <div class="product-list">
-
-      <!-- 상품 1: 티셔츠 -->
-      <div class="product">
-        <a href="product.html?id=1">
-          <img src="images/면티.jfif" alt="기본 면 티셔츠">
-          <h3 class="product-name">기본 면 티셔츠</h3>
-        </a>
-        <p class="product-price">4,000원</p>
-        <button type="button" class="buy-btn">장바구니 담기</button>
-        
-      </div>
-
-      <!-- 상품 2: 에코백 -->
-      <div class="product">
-        <a href="product.html?id=2">
-          <img src="images/에코백.webp" alt="캔버스 에코백">
-          <h3 class="product-name">캔버스 에코백</h3>
-        </a>
-        <p class="product-price">1,500원</p>
-        <button type="button" class="buy-btn">장바구니 담기</button>
-      </div>
-
-      <!-- 상품 3: 텀블러 -->
-      <div class="product">
-        <a href="product.html?id=3">
-          <img src="images/텀블러.webp" alt="스테인리스 텀블러">
-          <h3 class="product-name">스테인리스 텀블러</h3>
-        </a>
-        <p class="product-price">2,000원</p>
-        <button type="button" class="buy-btn">장바구니 담기</button>
-      </div>
-
-      <!-- 상품 4: 무선 마우스 -->
-      <div class="product">
-        <a href="product.html?id=4">
-          <img src="images/무선마우스.jfif" alt="무선 마우스">
-          <h3 class="product-name">무선 마우스</h3>
-        </a>
-        <p class="product-price">2,000원</p>
-        <button type="button" class="buy-btn">장바구니 담기</button>
-      </div>
-
+    <div id="category-list">
+      <!-- shop.js가 상품을 자동으로 생성합니다. -->
     </div>
+
+    <!-- 문의 -->
+    <section class="contact" id="contact">
+      <h2>문의하기</h2>
+      <p>궁금한 점은 이메일로 보내주세요.</p>
+      <p class="contact-mail">hello@example.com</p>
+    </section>
   </main>
 
   <!-- 하단 -->
   <footer class="footer">
     <p>© 2026 적당히 마켓. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script src="products.js"></script>
+  <script src="shop.js"></script>
+  <script src="menu.js"></script>
 
 </body>
 </html>
