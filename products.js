@@ -13,7 +13,7 @@ const products = [
     id: 5,
     category: "의류",
     name: "기모 후드티",
-    price: 29000,
+    price: 9000,
     image: "images/후드티.jpg.jfif",
     description: "안쪽이 포근한 기모라서 쌀쌀한 날에 입기 좋아요."
   },
@@ -21,7 +21,7 @@ const products = [
     id: 6,
     category: "의류",
     name: "와이드 청바지",
-    price: 39000,
+    price: 9000,
     image: "images/청바지.jpg",
     description: "넉넉한 핏이라 편하고, 어떤 윗옷과도 잘 맞아요."
   },
@@ -29,7 +29,7 @@ const products = [
     id: 7,
     category: "의류",
     name: "오버핏 맨투맨",
-    price: 25000,
+    price: 5000,
     image: "images/맨투맨.jpg",
     description: "헐렁하게 떨어지는 편한 맨투맨이에요."
   },
@@ -55,7 +55,7 @@ const products = [
     id: 8,
     category: "잡화",
     name: "데일리 볼캡",
-    price: 16000,
+   price: 5000,
     image: "images/볼캡.jpg",
     description: "머리 크기에 맞춰 줄일 수 있는 편한 모자예요."
   },
@@ -81,7 +81,7 @@ const products = [
     id: 10,
     category: "전자기기",
     name: "무선 키보드",
-    price: 35000,
+    price: 5000,
     image: "images/키보드.jpg",
     description: "얇고 가벼워서 들고 다니기 좋은 키보드예요."
   },
@@ -89,7 +89,7 @@ const products = [
     id: 11,
     category: "전자기기",
     name: "블루투스 이어폰",
-    price: 28000,
+    price: 6500,
     image: "images/이어폰.jpg",
     description: "선 없이 편하게 음악을 들어요. 케이스에 넣으면 충전돼요."
   },
@@ -97,7 +97,7 @@ const products = [
     id: 12,
     category: "전자기기",
     name: "보조배터리",
-    price: 24000,
+    price: 2000,
     image: "images/보조배터리.jpg",
     description: "밖에서 폰이 꺼질 때 걱정 없이 쓸 수 있어요."
   }
