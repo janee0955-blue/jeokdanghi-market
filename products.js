@@ -22,7 +22,7 @@ const products = [
     category: "의류",
     name: "와이드 청바지",
     price: 9000,
-    image: "images/청바지.jpg",
+    image: "images/와이드 청바지.jpg",
     description: "넉넉한 핏이라 편하고, 어떤 윗옷과도 잘 맞아요."
   },
   {
